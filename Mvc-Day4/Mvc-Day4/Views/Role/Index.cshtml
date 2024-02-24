@@ -1,0 +1,22 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@using Mvc_Day4.Models
+@model List<Movie> 
+@{
+}
+<h1>Movies List</h1>
+<a asp-action="Admin" asp-controller="Role"> <button>Creat New</button> </a>
+<br />
+
+@foreach (var movie in Model)
+{
+    <span>
+
+        @Html.ActionLink(@movie.Name,"MedManager","Role",new{id = movie.Id})
+
+        <a asp-action="Manager" asp-controller="Role" asp-route-id="@movie.Id"><button>Edit</button></a> <a asp-action="Delete" asp-controller="Role" asp-route-id="@movie.Id"><button>Delete</button></a>
+        <br />
+       
+    </span>
+}

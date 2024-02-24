@@ -1,0 +1,66 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@using Mvc_Day4.ViewModels
+@model MovieViewModels
+@{
+}
+<h1>Admin Access</h1>
+
+@using (Html.BeginForm("Save", "Role"))
+{
+
+    <div class="form-gruop">
+        @Html.LabelFor(m=>m.Movie.Name)
+        @Html.TextBoxFor(m=>m.Movie.Name,new{@class="form-control"})
+        @Html.ValidationMessageFor(m=>m.Movie.Name)
+    </div>
+
+    <div class="form-gruop">
+        @Html.LabelFor(m=>m.Movie.PublishDate)
+        @Html.TextBoxFor(m=>m.Movie.PublishDate,new{@class="form-control"})
+        @Html.ValidationMessageFor(m=>m.Movie.PublishDate)
+
+    </div>
+
+    @*  <div class="check box">
+        @Html.CheckBoxFor(m=>m.Movie.IsSubscribedToNewLitter) subscribed To Newletter?
+    </div>*@
+
+    <div class="form-gruop">
+        @Html.LabelFor(m=>m.Movie.MovieType)
+        @Html.DropDownListFor(m=>m.Movie.MovieTypeId,new SelectList(Model.Movietypes,"Id","Name"),new{@class="form-control"})
+        @Html.ValidationMessageFor(m=>m.Movie.MovieTypeId)
+
+    </div>
+
+    <div class="form-gruop">
+        @Html.LabelFor(m=>m.Movie.Category)
+        @Html.TextBoxFor(m=>m.Movie.Category,new{@class="form-control"})
+        @Html.ValidationMessageFor(m=>m.Movie.Category)
+
+    </div>
+
+    <div class="form-gruop">
+        @Html.LabelFor(m=>m.Movie.MovieStar)
+        @Html.TextBoxFor(m=>m.Movie.MovieStar,new{@class="form-control"})
+        @Html.ValidationMessageFor(m=>m.Movie.MovieStar)
+
+    </div>
+    <div class="form-gruop">
+        @Html.LabelFor(m=>m.Movie.MovieLength)
+        @Html.TextBoxFor(m=>m.Movie.MovieLength,new{@class="form-control"})
+        @Html.ValidationMessageFor(m=>m.Movie.MovieLength)
+
+    </div>
+    <div class="form-gruop">
+        @Html.LabelFor(m=>m.Movie.Rate)
+        @Html.TextBoxFor(m=>m.Movie.Rate,new{@class="form-control"})
+        @Html.ValidationMessageFor(m=>m.Movie.Rate)
+
+    </div>
+    @Html.HiddenFor(m=>m.Movie.Id)
+    //@Html.AntiForgeryToken();
+    <button type="submit">Save</button>
+
+}
